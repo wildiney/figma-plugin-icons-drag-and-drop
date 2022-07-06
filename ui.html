@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .icons-grid{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .icon{
+            cursor: grab;
+            width: 24px;
+            height: 24px;
+            margin:4px;
+            padding:16px;
+            border-radius: 4px;
+            border: 1px solid gray;
+            display: inline-block;
+        }
+
+        .icon:hover{
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icon-grid">
+        <span class="icon" draggable="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10.4589 21.1784L8.17155 20.5147C7.93157 20.4472 7.79658 20.1959 7.86407 19.956L12.9824 2.32483C13.0499 2.08485 13.3011 1.94986 13.5411 2.01735L15.8285 2.68105C16.0684 2.74855 16.2034 2.99978 16.1359 3.23976L11.0176 20.8709C10.9463 21.1109 10.6989 21.2496 10.4589 21.1784ZM6.1842 16.9712L7.81533 15.2313C7.98781 15.0476 7.97656 14.7551 7.78533 14.5864L4.38809 11.5979L7.78533 8.60934C7.97656 8.4406 7.99156 8.14813 7.81533 7.96439L6.1842 6.22453C6.01547 6.04454 5.73049 6.03329 5.54675 6.20578L0.143426 11.2679C-0.0478088 11.4441 -0.0478088 11.7478 0.143426 11.9241L5.54675 16.9899C5.73049 17.1624 6.01547 17.1549 6.1842 16.9712ZM18.4532 16.9937L23.8566 11.9278C24.0478 11.7516 24.0478 11.4479 23.8566 11.2716L18.4532 6.20203C18.2733 6.03329 17.9883 6.04079 17.8158 6.22078L16.1847 7.96064C16.0122 8.14438 16.0234 8.43685 16.2147 8.60559L19.6119 11.5979L16.2147 14.5864C16.0234 14.7551 16.0084 15.0476 16.1847 15.2313L17.8158 16.9712C17.9845 17.1549 18.2695 17.1624 18.4532 16.9937Z"
+                    fill="#4E6178" />
+            </svg>
+        </span>
+        <span class="icon" draggable="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10.4589 21.1784L8.17155 20.5147C7.93157 20.4472 7.79658 20.1959 7.86407 19.956L12.9824 2.32483C13.0499 2.08485 13.3011 1.94986 13.5411 2.01735L15.8285 2.68105C16.0684 2.74855 16.2034 2.99978 16.1359 3.23976L11.0176 20.8709C10.9463 21.1109 10.6989 21.2496 10.4589 21.1784ZM6.1842 16.9712L7.81533 15.2313C7.98781 15.0476 7.97656 14.7551 7.78533 14.5864L4.38809 11.5979L7.78533 8.60934C7.97656 8.4406 7.99156 8.14813 7.81533 7.96439L6.1842 6.22453C6.01547 6.04454 5.73049 6.03329 5.54675 6.20578L0.143426 11.2679C-0.0478088 11.4441 -0.0478088 11.7478 0.143426 11.9241L5.54675 16.9899C5.73049 17.1624 6.01547 17.1549 6.1842 16.9712ZM18.4532 16.9937L23.8566 11.9278C24.0478 11.7516 24.0478 11.4479 23.8566 11.2716L18.4532 6.20203C18.2733 6.03329 17.9883 6.04079 17.8158 6.22078L16.1847 7.96064C16.0122 8.14438 16.0234 8.43685 16.2147 8.60559L19.6119 11.5979L16.2147 14.5864C16.0234 14.7551 16.0084 15.0476 16.1847 15.2313L17.8158 16.9712C17.9845 17.1549 18.2695 17.1624 18.4532 16.9937Z"
+                    fill="#4E6178" />
+            </svg>
+        </span>
+    </div>
+</body>
+<script>
+    const json = JSON.stringify([
+    {
+        "category": "Accessibility",
+        "icons": [
+            {
+                "name": "Braille.svg",
+                "file": "./icones/Accessibility/Braille.svg"
+            },
+            {
+                "name": "Deaf.svg",
+                "file": "./icones/Accessibility/Deaf.svg"
+            },
+            {
+                "name": "Low Vision.svg",
+                "file": "./icones/Accessibility/Low Vision.svg"
+            },
+            {
+                "name": "Phone Volume.svg",
+                "file": "./icones/Accessibility/Phone Volume.svg"
+            },
+            {
+                "name": "Sign Language.svg",
+                "file": "./icones/Accessibility/Sign Language.svg"
+            },
+            {
+                "name": "Universal Access.svg",
+                "file": "./icones/Accessibility/Universal Access.svg"
+            }
+        ]
+    },
+    {
+        "category": "Alert",
+        "icons": [
+            {
+                "name": "Bell Slash.svg",
+                "file": "./icones/Alert/Bell Slash.svg"
+            },
+            {
+                "name": "Bell.svg",
+                "file": "./icones/Alert/Bell.svg"
+            },
+            {
+                "name": "Exclamation Circle.svg",
+                "file": "./icones/Alert/Exclamation Circle.svg"
+            },
+            {
+                "name": "Exclamation Triangle.svg",
+                "file": "./icones/Alert/Exclamation Triangle.svg"
+            },
+            {
+                "name": "Exclamation.svg",
+                "file": "./icones/Alert/Exclamation.svg"
+            },
+            {
+                "name": "Radiation alt.svg",
+                "file": "./icones/Alert/Radiation alt.svg"
+            },
+            {
+                "name": "Radiation.svg",
+                "file": "./icones/Alert/Radiation.svg"
+            },
+            {
+                "name": "Skull Crossbones.svg",
+                "file": "./icones/Alert/Skull Crossbones.svg"
+            }
+        ]
+    },
+    {
+        "category": "Animals",
+        "icons": [
+            {
+                "name": "Bug.svg",
+                "file": "./icones/Animals/Bug.svg"
+            },
+            {
+                "name": "Cat.svg",
+                "file": "./icones/Animals/Cat.svg"
+            },
+            {
+                "name": "Crow.svg",
+                "file": "./icones/Animals/Crow.svg"
+            },
+            {
+                "name": "Dog.svg",
+                "file": "./icones/Animals/Dog.svg"
+            },
+            {
+                "name": "Dove.svg",
+                "file": "./icones/Animals/Dove.svg"
+            },
+            {
+                "name": "Dragon.svg",
+                "file": "./icones/Animals/Dragon.svg"
+            },
+            {
+                "name": "Feather Alt.svg",
+                "file": "./icones/Animals/Feather Alt.svg"
+            },
+            {
+                "name": "Feather.svg",
+                "file": "./icones/Animals/Feather.svg"
+            },
+            {
+                "name": "Fish.svg",
+                "file": "./icones/Animals/Fish.svg"
+            },
+            {
+                "name": "Frog.svg",
+                "file": "./icones/Animals/Frog.svg"
+            },
+            {
+                "name": "Hippo.svg",
+                "file": "./icones/Animals/Hippo.svg"
+            },
+            {
+                "name": "Horse Head.svg",
+                "file": "./icones/Animals/Horse Head.svg"
+            },
+            {
+                "name": "horse.svg",
+                "file": "./icones/Animals/horse.svg"
+            },
+            {
+                "name": "Kiwi Bird.svg",
+                "file": "./icones/Animals/Kiwi Bird.svg"
+            },
+            {
+                "name": "Otter.svg",
+                "file": "./icones/Animals/Otter.svg"
+            },
+            {
+                "name": "Paw.svg",
+                "file": "./icones/Animals/Paw.svg"
+            },
+            {
+                "name": "Spider.svg",
+                "file": "./icones/Animals/Spider.svg"
+            }
+        ]
+    },
+    {
+        "category": "Audio & Video",
+        "icons": [
+            {
+                "name": "Closed Captioning.svg",
+                "file": "./icones/Audio & Video/Closed Captioning.svg"
+            }
+        ]
+    },
+    {
+        "category": "Buildings",
+        "icons": [
+            {
+                "name": "Archway.svg",
+                "file": "./icones/Buildings/Archway.svg"
+            },
+            {
+                "name": "Building.svg",
+                "file": "./icones/Buildings/Building.svg"
+            },
+            {
+                "name": "Church.svg",
+                "file": "./icones/Buildings/Church.svg"
+            },
+            {
+                "name": "Home.svg",
+                "file": "./icones/Buildings/Home.svg"
+            },
+            {
+                "name": "Hospital Alt.svg",
+                "file": "./icones/Buildings/Hospital Alt.svg"
+            },
+            {
+                "name": "Hospital.svg",
+                "file": "./icones/Buildings/Hospital.svg"
+            },
+            {
+                "name": "Hotel.svg",
+                "file": "./icones/Buildings/Hotel.svg"
+            },
+            {
+                "name": "Industry.svg",
+                "file": "./icones/Buildings/Industry.svg"
+            },
+            {
+                "name": "Monument.svg",
+                "file": "./icones/Buildings/Monument.svg"
+            },
+            {
+                "name": "School.svg",
+                "file": "./icones/Buildings/School.svg"
+            },
+            {
+                "name": "Store Alt.svg",
+                "file": "./icones/Buildings/Store Alt.svg"
+            },
+            {
+                "name": "Store.svg",
+                "file": "./icones/Buildings/Store.svg"
+            },
+            {
+                "name": "University.svg",
+                "file": "./icones/Buildings/University.svg"
+            },
+            {
+                "name": "Warehouse.svg",
+                "file": "./icones/Buildings/Warehouse.svg"
+            }
+        ]
+    },
+    {
+        "category": "Charity",
+        "icons": [
+            {
+                "name": "Gift.jpg",
+                "file": "./icones/Charity/Gift.jpg"
+            },
+            {
+                "name": "Parachute Box.svg",
+                "file": "./icones/Charity/Parachute Box.svg"
+            },
+            {
+                "name": "Ribbon.svg",
+                "file": "./icones/Charity/Ribbon.svg"
+            }
+        ]
+    },
+    {
+        "category": "Chat",
+        "icons": [
+            {
+                "name": "Comment Alt.svg",
+                "file": "./icones/Chat/Comment Alt.svg"
+            },
+            {
+                "name": "Comment Dots.svg",
+                "file": "./icones/Chat/Comment Dots.svg"
+            },
+            {
+                "name": "Comment Slash.svg",
+                "file": "./icones/Chat/Comment Slash.svg"
+            },
+            {
+                "name": "Comment.svg",
+                "file": "./icones/Chat/Comment.svg"
+            },
+            {
+                "name": "Comments.svg",
+                "file": "./icones/Chat/Comments.svg"
+            },
+            {
+                "name": "Phone Slash.svg",
+                "file": "./icones/Chat/Phone Slash.svg"
+            },
+            {
+                "name": "Phone Square.svg",
+                "file": "./icones/Chat/Phone Square.svg"
+            },
+            {
+                "name": "Phone.svg",
+                "file": "./icones/Chat/Phone.svg"
+            },
+            {
+                "name": "Quote Left.svg",
+                "file": "./icones/Chat/Quote Left.svg"
+            },
+            {
+                "name": "Quote Right.svg",
+                "file": "./icones/Chat/Quote Right.svg"
+            }
+        ]
+    },
+    {
+        "category": "Clothing",
+        "icons": [
+            {
+                "name": "Glasses.svg",
+                "file": "./icones/Clothing/Glasses.svg"
+            },
+            {
+                "name": "Graduation Cap.svg",
+                "file": "./icones/Clothing/Graduation Cap.svg"
+            },
+            {
+                "name": "Shoe Prints.svg",
+                "file": "./icones/Clothing/Shoe Prints.svg"
+            },
+            {
+                "name": "Tshirt.svg",
+                "file": "./icones/Clothing/Tshirt.svg"
+            }
+        ]
+    },
+    {
+        "category": "Code",
+        "icons": [
+            {
+                "name": "Code Branch.svg",
+                "file": "./icones/Code/Code Branch.svg"
+            },
+            {
+                "name": "Code.svg",
+                "file": "./icones/Code/Code.svg"
+            },
+            {
+                "name": "Project Diagram.svg",
+                "file": "./icones/Code/Project Diagram.svg"
+            },
+            {
+                "name": "Sitemap.svg",
+                "file": "./icones/Code/Sitemap.svg"
+            },
+            {
+                "name": "Terminal.svg",
+                "file": "./icones/Code/Terminal.svg"
+            }
+        ]
+    },
+    {
+        "category": "Communication",
+        "icons": [
+            {
+                "name": "American Sign Language Interpreting.svg",
+                "file": "./icones/Communication/American Sign Language Interpreting.svg"
+            },
+            {
+                "name": "Assistive Listening Systems.svg",
+                "file": "./icones/Communication/Assistive Listening Systems.svg"
+            },
+            {
+                "name": "Tty.svg",
+                "file": "./icones/Communication/Tty.svg"
+            }
+        ]
+    },
+    {
+        "category": "Currency",
+        "icons": [
+            {
+                "name": "Coins.svg",
+                "file": "./icones/Currency/Coins.svg"
+            },
+            {
+                "name": "Credit Card.svg",
+                "file": "./icones/Currency/Credit Card.svg"
+            },
+            {
+                "name": "Dollar Sign.svg",
+                "file": "./icones/Currency/Dollar Sign.svg"
+            },
+            {
+                "name": "Donate.svg",
+                "file": "./icones/Currency/Donate.svg"
+            },
+            {
+                "name": "Euro Sign.svg",
+                "file": "./icones/Currency/Euro Sign.svg"
+            },
+            {
+                "name": "Gem.svg",
+                "file": "./icones/Currency/Gem.svg"
+            },
+            {
+                "name": "Lira Sign.svg",
+                "file": "./icones/Currency/Lira Sign.svg"
+            },
+            {
+                "name": "Money Bill Alt.svg",
+                "file": "./icones/Currency/Money Bill Alt.svg"
+            },
+            {
+                "name": "Money Bill Wave Alt.svg",
+                "file": "./icones/Currency/Money Bill Wave Alt.svg"
+            },
+            {
+                "name": "Money Bill Wave.svg",
+                "file": "./icones/Currency/Money Bill Wave.svg"
+            },
+            {
+                "name": "Money Bill.svg",
+                "file": "./icones/Currency/Money Bill.svg"
+            },
+            {
+                "name": "Money Check Alt.svg",
+                "file": "./icones/Currency/Money Check Alt.svg"
+            },
+            {
+                "name": "Money Check.svg",
+                "file": "./icones/Currency/Money Check.svg"
+            },
+            {
+                "name": "Piggy Bank.svg",
+                "file": "./icones/Currency/Piggy Bank.svg"
+            },
+            {
+                "name": "Pound Sign.svg",
+                "file": "./icones/Currency/Pound Sign.svg"
+            },
+            {
+                "name": "Ruble Sign.svg",
+                "file": "./icones/Currency/Ruble Sign.svg"
+            },
+            {
+                "name": "Rupee Sign.svg",
+                "file": "./icones/Currency/Rupee Sign.svg"
+            },
+            {
+                "name": "Wallet.svg",
+                "file": "./icones/Currency/Wallet.svg"
+            },
+            {
+                "name": "Won Sign.svg",
+                "file": "./icones/Currency/Won Sign.svg"
+            },
+            {
+                "name": "Yen Sign.svg",
+                "file": "./icones/Currency/Yen Sign.svg"
+            }
+        ]
+    },
+    {
+        "category": "Date & Time",
+        "icons": [
+            {
+                "name": "Calendar Alt.jpg",
+                "file": "./icones/Date & Time/Calendar Alt.jpg"
+            },
+            {
+                "name": "Calendar Check.jpg",
+                "file": "./icones/Date & Time/Calendar Check.jpg"
+            },
+            {
+                "name": "Calendar Minus.jpg",
+                "file": "./icones/Date & Time/Calendar Minus.jpg"
+            },
+            {
+                "name": "Calendar Plus.jpg",
+                "file": "./icones/Date & Time/Calendar Plus.jpg"
+            },
+            {
+                "name": "Calendar Times.jpg",
+                "file": "./icones/Date & Time/Calendar Times.jpg"
+            },
+            {
+                "name": "Calendar.jpg",
+                "file": "./icones/Date & Time/Calendar.jpg"
+            },
+            {
+                "name": "Clock.svg",
+                "file": "./icones/Date & Time/Clock.svg"
+            },
+            {
+                "name": "Hourglass End.svg",
+                "file": "./icones/Date & Time/Hourglass End.svg"
+            },
+            {
+                "name": "Hourglass Half.svg",
+                "file": "./icones/Date & Time/Hourglass Half.svg"
+            },
+            {
+                "name": "Hourglass Start.svg",
+                "file": "./icones/Date & Time/Hourglass Start.svg"
+            },
+            {
+                "name": "Hourglass.svg",
+                "file": "./icones/Date & Time/Hourglass.svg"
+            },
+            {
+                "name": "Stopwatch.svg",
+                "file": "./icones/Date & Time/Stopwatch.svg"
+            }
+        ]
+    },
+    {
+        "category": "Defaut",
+        "icons": [
+            {
+                "name": "Defaut icon.svg",
+                "file": "./icones/Defaut/Defaut icon.svg"
+            }
+        ]
+    },
+    {
+        "category": "Design & Tools",
+        "icons": [
+            {
+                "name": "Splotch.svg",
+                "file": "./icones/Design & Tools/Splotch.svg"
+            }
+        ]
+    },
+    {
+        "category": "Editors",
+        "icons": [
+            {
+                "name": "Align Center.svg",
+                "file": "./icones/Editors/Align Center.svg"
+            },
+            {
+                "name": "Align Justify.svg",
+                "file": "./icones/Editors/Align Justify.svg"
+            },
+            {
+                "name": "Align Left.svg",
+                "file": "./icones/Editors/Align Left.svg"
+            },
+            {
+                "name": "Align Right.svg",
+                "file": "./icones/Editors/Align Right.svg"
+            },
+            {
+                "name": "Asterisk.svg",
+                "file": "./icones/Editors/Asterisk.svg"
+            },
+            {
+                "name": "At.svg",
+                "file": "./icones/Editors/At.svg"
+            },
+            {
+                "name": "Backspace.svg",
+                "file": "./icones/Editors/Backspace.svg"
+            },
+            {
+                "name": "Bold.svg",
+                "file": "./icones/Editors/Bold.svg"
+            },
+            {
+                "name": "Calculator.svg",
+                "file": "./icones/Editors/Calculator.svg"
+            },
+            {
+                "name": "Divide.svg",
+                "file": "./icones/Editors/Divide.svg"
+            },
+            {
+                "name": "Equals.svg",
+                "file": "./icones/Editors/Equals.svg"
+            },
+            {
+                "name": "Font.svg",
+                "file": "./icones/Editors/Font.svg"
+            },
+            {
+                "name": "Greater Than Equal.svg",
+                "file": "./icones/Editors/Greater Than Equal.svg"
+            },
+            {
+                "name": "Greater Than.svg",
+                "file": "./icones/Editors/Greater Than.svg"
+            },
+            {
+                "name": "Hashtag.svg",
+                "file": "./icones/Editors/Hashtag.svg"
+            },
+            {
+                "name": "Heading.svg",
+                "file": "./icones/Editors/Heading.svg"
+            },
+            {
+                "name": "I Cursor.svg",
+                "file": "./icones/Editors/I Cursor.svg"
+            },
+            {
+                "name": "Indent.svg",
+                "file": "./icones/Editors/Indent.svg"
+            },
+            {
+                "name": "Italic.svg",
+                "file": "./icones/Editors/Italic.svg"
+            },
+            {
+                "name": "Keyboard.svg",
+                "file": "./icones/Editors/Keyboard.svg"
+            },
+            {
+                "name": "Language.svg",
+                "file": "./icones/Editors/Language.svg"
+            },
+            {
+                "name": "Less Than Equal.svg",
+                "file": "./icones/Editors/Less Than Equal.svg"
+            },
+            {
+                "name": "Less Than.svg",
+                "file": "./icones/Editors/Less Than.svg"
+            },
+            {
+                "name": "List Ol.svg",
+                "file": "./icones/Editors/List Ol.svg"
+            },
+            {
+                "name": "List Ul.svg",
+                "file": "./icones/Editors/List Ul.svg"
+            },
+            {
+                "name": "Not Equal.svg",
+                "file": "./icones/Editors/Not Equal.svg"
+            },
+            {
+                "name": "Outdent.svg",
+                "file": "./icones/Editors/Outdent.svg"
+            },
+            {
+                "name": "Paragraph.svg",
+                "file": "./icones/Editors/Paragraph.svg"
+            },
+            {
+                "name": "Percent.svg",
+                "file": "./icones/Editors/Percent.svg"
+            },
+            {
+                "name": "Percentage.svg",
+                "file": "./icones/Editors/Percentage.svg"
+            },
+            {
+                "name": "Prescription.svg",
+                "file": "./icones/Editors/Prescription.svg"
+            },
+            {
+                "name": "Strikethrough.svg",
+                "file": "./icones/Editors/Strikethrough.svg"
+            },
+            {
+                "name": "Subscript.svg",
+                "file": "./icones/Editors/Subscript.svg"
+            },
+            {
+                "name": "Superscript.svg",
+                "file": "./icones/Editors/Superscript.svg"
+            },
+            {
+                "name": "Tasks.svg",
+                "file": "./icones/Editors/Tasks.svg"
+            },
+            {
+                "name": "Underline.svg",
+                "file": "./icones/Editors/Underline.svg"
+            }
+        ]
+    },
+    {
+        "category": "Files",
+        "icons": [
+            {
+                "name": "Address Card.svg",
+                "file": "./icones/Files/Address Card.svg"
+            },
+            {
+                "name": "Archive.svg",
+                "file": "./icones/Files/Archive.svg"
+            },
+            {
+                "name": "Atlas.svg",
+                "file": "./icones/Files/Atlas.svg"
+            },
+            {
+                "name": "Book Open.svg",
+                "file": "./icones/Files/Book Open.svg"
+            },
+            {
+                "name": "Book.svg",
+                "file": "./icones/Files/Book.svg"
+            },
+            {
+                "name": "File Alt.svg",
+                "file": "./icones/Files/File Alt.svg"
+            },
+            {
+                "name": "File Archive.svg",
+                "file": "./icones/Files/File Archive.svg"
+            },
+            {
+                "name": "File Code.svg",
+                "file": "./icones/Files/File Code.svg"
+            },
+            {
+                "name": "File Contract.svg",
+                "file": "./icones/Files/File Contract.svg"
+            },
+            {
+                "name": "File Excel.svg",
+                "file": "./icones/Files/File Excel.svg"
+            },
+            {
+                "name": "File Image.svg",
+                "file": "./icones/Files/File Image.svg"
+            },
+            {
+                "name": "File Invoice Dollar.svg",
+                "file": "./icones/Files/File Invoice Dollar.svg"
+            },
+            {
+                "name": "File Invoice.svg",
+                "file": "./icones/Files/File Invoice.svg"
+            },
+            {
+                "name": "File Medical Alt.svg",
+                "file": "./icones/Files/File Medical Alt.svg"
+            },
+            {
+                "name": "File Medical.svg",
+                "file": "./icones/Files/File Medical.svg"
+            },
+            {
+                "name": "File Pdf.svg",
+                "file": "./icones/Files/File Pdf.svg"
+            },
+            {
+                "name": "File Powerpoint.svg",
+                "file": "./icones/Files/File Powerpoint.svg"
+            },
+            {
+                "name": "File Prescription.svg",
+                "file": "./icones/Files/File Prescription.svg"
+            },
+            {
+                "name": "File Signature.svg",
+                "file": "./icones/Files/File Signature.svg"
+            },
+            {
+                "name": "File Word.svg",
+                "file": "./icones/Files/File Word.svg"
+            },
+            {
+                "name": "File.svg",
+                "file": "./icones/Files/File.svg"
+            },
+            {
+                "name": "Folder Open.svg",
+                "file": "./icones/Files/Folder Open.svg"
+            },
+            {
+                "name": "Folder.svg",
+                "file": "./icones/Files/Folder.svg"
+            },
+            {
+                "name": "Id Badge.svg",
+                "file": "./icones/Files/Id Badge.svg"
+            },
+            {
+                "name": "Id Card Alt.svg",
+                "file": "./icones/Files/Id Card Alt.svg"
+            },
+            {
+                "name": "Newspaper.svg",
+                "file": "./icones/Files/Newspaper.svg"
+            },
+            {
+                "name": "Passport.svg",
+                "file": "./icones/Files/Passport.svg"
+            },
+            {
+                "name": "Portrait.svg",
+                "file": "./icones/Files/Portrait.svg"
+            },
+            {
+                "name": "Receipt.jpg",
+                "file": "./icones/Files/Receipt.jpg"
+            },
+            {
+                "name": "Sticky Note.svg",
+                "file": "./icones/Files/Sticky Note.svg"
+            }
+        ]
+    },
+    {
+        "category": "Food & Beverages",
+        "icons": [
+            {
+                "name": "Beer.svg",
+                "file": "./icones/Food & Beverages/Beer.svg"
+            },
+            {
+                "name": "Birthday Cake.svg",
+                "file": "./icones/Food & Beverages/Birthday Cake.svg"
+            },
+            {
+                "name": "Blender.svg",
+                "file": "./icones/Food & Beverages/Blender.svg"
+            },
+            {
+                "name": "Cocktail.svg",
+                "file": "./icones/Food & Beverages/Cocktail.svg"
+            },
+            {
+                "name": "Coffee.svg",
+                "file": "./icones/Food & Beverages/Coffee.svg"
+            },
+            {
+                "name": "Glass Martini Alt.svg",
+                "file": "./icones/Food & Beverages/Glass Martini Alt.svg"
+            },
+            {
+                "name": "Glass Martini.svg",
+                "file": "./icones/Food & Beverages/Glass Martini.svg"
+            },
+            {
+                "name": "Lemon.svg",
+                "file": "./icones/Food & Beverages/Lemon.svg"
+            },
+            {
+                "name": "Mortar Pestle.svg",
+                "file": "./icones/Food & Beverages/Mortar Pestle.svg"
+            },
+            {
+                "name": "Stroopwafel.svg",
+                "file": "./icones/Food & Beverages/Stroopwafel.svg"
+            },
+            {
+                "name": "Utensil Spoon.svg",
+                "file": "./icones/Food & Beverages/Utensil Spoon.svg"
+            },
+            {
+                "name": "Utensils.svg",
+                "file": "./icones/Food & Beverages/Utensils.svg"
+            },
+            {
+                "name": "Wine Glass Alt.svg",
+                "file": "./icones/Food & Beverages/Wine Glass Alt.svg"
+            },
+            {
+                "name": "Wine Glass.svg",
+                "file": "./icones/Food & Beverages/Wine Glass.svg"
+            }
+        ]
+    },
+    {
+        "category": "Genders",
+        "icons": [
+            {
+                "name": "Female.svg",
+                "file": "./icones/Genders/Female.svg"
+            },
+            {
+                "name": "Genderless.svg",
+                "file": "./icones/Genders/Genderless.svg"
+            },
+            {
+                "name": "Male.svg",
+                "file": "./icones/Genders/Male.svg"
+            },
+            {
+                "name": "Mars Double.svg",
+                "file": "./icones/Genders/Mars Double.svg"
+            },
+            {
+                "name": "Mars Stroke H.svg",
+                "file": "./icones/Genders/Mars Stroke H.svg"
+            },
+            {
+                "name": "Mars Stroke V.svg",
+                "file": "./icones/Genders/Mars Stroke V.svg"
+            },
+            {
+                "name": "Mars Stroke.svg",
+                "file": "./icones/Genders/Mars Stroke.svg"
+            },
+            {
+                "name": "Mars.svg",
+                "file": "./icones/Genders/Mars.svg"
+            },
+            {
+                "name": "Mercury.svg",
+                "file": "./icones/Genders/Mercury.svg"
+            },
+            {
+                "name": "Transgender Alt.svg",
+                "file": "./icones/Genders/Transgender Alt.svg"
+            },
+            {
+                "name": "Transgender.svg",
+                "file": "./icones/Genders/Transgender.svg"
+            },
+            {
+                "name": "Venus Double.svg",
+                "file": "./icones/Genders/Venus Double.svg"
+            },
+            {
+                "name": "Venus Mars.svg",
+                "file": "./icones/Genders/Venus Mars.svg"
+            },
+            {
+                "name": "Venus.svg",
+                "file": "./icones/Genders/Venus.svg"
+            }
+        ]
+    },
+    {
+        "category": "Hands",
+        "icons": [
+            {
+                "name": "Hand Holding Heart.svg",
+                "file": "./icones/Hands/Hand Holding Heart.svg"
+            },
+            {
+                "name": "Hand Holding Usd.svg",
+                "file": "./icones/Hands/Hand Holding Usd.svg"
+            },
+            {
+                "name": "Hand Holding.svg",
+                "file": "./icones/Hands/Hand Holding.svg"
+            },
+            {
+                "name": "Hand Lizard.svg",
+                "file": "./icones/Hands/Hand Lizard.svg"
+            },
+            {
+                "name": "Hand Paper.svg",
+                "file": "./icones/Hands/Hand Paper.svg"
+            },
+            {
+                "name": "Hand Peace.svg",
+                "file": "./icones/Hands/Hand Peace.svg"
+            },
+            {
+                "name": "Hand Point Down.svg",
+                "file": "./icones/Hands/Hand Point Down.svg"
+            },
+            {
+                "name": "Hand Point Left.svg",
+                "file": "./icones/Hands/Hand Point Left.svg"
+            },
+            {
+                "name": "Hand Point Right.svg",
+                "file": "./icones/Hands/Hand Point Right.svg"
+            },
+            {
+                "name": "Hand Point Up.svg",
+                "file": "./icones/Hands/Hand Point Up.svg"
+            },
+            {
+                "name": "Hand Pointer.svg",
+                "file": "./icones/Hands/Hand Pointer.svg"
+            },
+            {
+                "name": "Hand Rock.svg",
+                "file": "./icones/Hands/Hand Rock.svg"
+            },
+            {
+                "name": "Hand Scissors.svg",
+                "file": "./icones/Hands/Hand Scissors.svg"
+            },
+            {
+                "name": "Hand Spock.svg",
+                "file": "./icones/Hands/Hand Spock.svg"
+            },
+            {
+                "name": "Hands Helping.svg",
+                "file": "./icones/Hands/Hands Helping.svg"
+            },
+            {
+                "name": "Hands.svg",
+                "file": "./icones/Hands/Hands.svg"
+            },
+            {
+                "name": "Handshake.svg",
+                "file": "./icones/Hands/Handshake.svg"
+            },
+            {
+                "name": "Thumbs Down.svg",
+                "file": "./icones/Hands/Thumbs Down.svg"
+            },
+            {
+                "name": "Thumbs Up.svg",
+                "file": "./icones/Hands/Thumbs Up.svg"
+            }
+        ]
+    },
+    {
+        "category": "Health",
+        "icons": [
+            {
+                "name": "Allergies.svg",
+                "file": "./icones/Health/Allergies.svg"
+            },
+            {
+                "name": "Band Aid.svg",
+                "file": "./icones/Health/Band Aid.svg"
+            },
+            {
+                "name": "Briefcase Medical.svg",
+                "file": "./icones/Health/Briefcase Medical.svg"
+            },
+            {
+                "name": "Burn.svg",
+                "file": "./icones/Health/Burn.svg"
+            },
+            {
+                "name": "Capsules.svg",
+                "file": "./icones/Health/Capsules.svg"
+            },
+            {
+                "name": "Diagnoses.svg",
+                "file": "./icones/Health/Diagnoses.svg"
+            },
+            {
+                "name": "Dumbbell.svg",
+                "file": "./icones/Health/Dumbbell.svg"
+            },
+            {
+                "name": "Fire Extinguisher.svg",
+                "file": "./icones/Health/Fire Extinguisher.svg"
+            },
+            {
+                "name": "First Aid.svg",
+                "file": "./icones/Health/First Aid.svg"
+            },
+            {
+                "name": "H Square.svg",
+                "file": "./icones/Health/H Square.svg"
+            },
+            {
+                "name": "HDna.svg",
+                "file": "./icones/Health/HDna.svg"
+            },
+            {
+                "name": "Heartbeat.svg",
+                "file": "./icones/Health/Heartbeat.svg"
+            },
+            {
+                "name": "HFire.svg",
+                "file": "./icones/Health/HFire.svg"
+            },
+            {
+                "name": "HHospital Symbol.svg",
+                "file": "./icones/Health/HHospital Symbol.svg"
+            },
+            {
+                "name": "HProcedures.svg",
+                "file": "./icones/Health/HProcedures.svg"
+            },
+            {
+                "name": "HX Ray.svg",
+                "file": "./icones/Health/HX Ray.svg"
+            },
+            {
+                "name": "Joint.svg",
+                "file": "./icones/Health/Joint.svg"
+            },
+            {
+                "name": "Life Ring.svg",
+                "file": "./icones/Health/Life Ring.svg"
+            },
+            {
+                "name": "Medkit.svg",
+                "file": "./icones/Health/Medkit.svg"
+            },
+            {
+                "name": "Notes Medical.svg",
+                "file": "./icones/Health/Notes Medical.svg"
+            },
+            {
+                "name": "Pills.svg",
+                "file": "./icones/Health/Pills.svg"
+            },
+            {
+                "name": "Prescription Bottle Alt.svg",
+                "file": "./icones/Health/Prescription Bottle Alt.svg"
+            },
+            {
+                "name": "Prescription Bottle.svg",
+                "file": "./icones/Health/Prescription Bottle.svg"
+            },
+            {
+                "name": "Skull.svg",
+                "file": "./icones/Health/Skull.svg"
+            },
+            {
+                "name": "Smoking Ban.svg",
+                "file": "./icones/Health/Smoking Ban.svg"
+            },
+            {
+                "name": "Smoking.svg",
+                "file": "./icones/Health/Smoking.svg"
+            },
+            {
+                "name": "Stethoscope.svg",
+                "file": "./icones/Health/Stethoscope.svg"
+            },
+            {
+                "name": "Syringe.svg",
+                "file": "./icones/Health/Syringe.svg"
+            },
+            {
+                "name": "Tablets.svg",
+                "file": "./icones/Health/Tablets.svg"
+            },
+            {
+                "name": "Thermometer Empty.svg",
+                "file": "./icones/Health/Thermometer Empty.svg"
+            },
+            {
+                "name": "Thermometer Full.svg",
+                "file": "./icones/Health/Thermometer Full.svg"
+            },
+            {
+                "name": "Thermometer Half.svg",
+                "file": "./icones/Health/Thermometer Half.svg"
+            },
+            {
+                "name": "Thermometer Quarter.svg",
+                "file": "./icones/Health/Thermometer Quarter.svg"
+            },
+            {
+                "name": "Thermometer Three Quarters.svg",
+                "file": "./icones/Health/Thermometer Three Quarters.svg"
+            },
+            {
+                "name": "Thermometer.svg",
+                "file": "./icones/Health/Thermometer.svg"
+            },
+            {
+                "name": "Tooth.svg",
+                "file": "./icones/Health/Tooth.svg"
+            },
+            {
+                "name": "Weight.svg",
+                "file": "./icones/Health/Weight.svg"
+            }
+        ]
+    },
+    {
+        "category": "Images",
+        "icons": [
+            {
+                "name": "Tint Slash.svg",
+                "file": "./icones/Images/Tint Slash.svg"
+            },
+            {
+                "name": "Tint.svg",
+                "file": "./icones/Images/Tint.svg"
+            }
+        ]
+    },
+    {
+        "category": "Interfaces",
+        "icons": [
+            {
+                "name": "Audio Description.svg",
+                "file": "./icones/Interfaces/Audio Description.svg"
+            },
+            {
+                "name": "Barcode.jpg",
+                "file": "./icones/Interfaces/Barcode.jpg"
+            },
+            {
+                "name": "Copyright.svg",
+                "file": "./icones/Interfaces/Copyright.svg"
+            },
+            {
+                "name": "Fingerprint.svg",
+                "file": "./icones/Interfaces/Fingerprint.svg"
+            },
+            {
+                "name": "Qrcode.svg",
+                "file": "./icones/Interfaces/Qrcode.svg"
+            },
+            {
+                "name": "Share Alt Square.svg",
+                "file": "./icones/Interfaces/Share Alt Square.svg"
+            },
+            {
+                "name": "Share Alt.svg",
+                "file": "./icones/Interfaces/Share Alt.svg"
+            },
+            {
+                "name": "Spinner.svg",
+                "file": "./icones/Interfaces/Spinner.svg"
+            }
+        ]
+    },
+    {
+        "category": "Logistics",
+        "icons": [
+            {
+                "name": "Boxes.svg",
+                "file": "./icones/Logistics/Boxes.svg"
+            },
+            {
+                "name": "Dolly Flatbed.svg",
+                "file": "./icones/Logistics/Dolly Flatbed.svg"
+            },
+            {
+                "name": "Dolly.svg",
+                "file": "./icones/Logistics/Dolly.svg"
+            },
+            {
+                "name": "Pallet.svg",
+                "file": "./icones/Logistics/Pallet.svg"
+            },
+            {
+                "name": "Truck Loading.svg",
+                "file": "./icones/Logistics/Truck Loading.svg"
+            }
+        ]
+    },
+    {
+        "category": "Moving",
+        "icons": [
+            {
+                "name": "Box Open.svg",
+                "file": "./icones/Moving/Box Open.svg"
+            },
+            {
+                "name": "Box.jpg",
+                "file": "./icones/Moving/Box.jpg"
+            },
+            {
+                "name": "Couch.svg",
+                "file": "./icones/Moving/Couch.svg"
+            },
+            {
+                "name": "Door Closed.svg",
+                "file": "./icones/Moving/Door Closed.svg"
+            },
+            {
+                "name": "Door Open.svg",
+                "file": "./icones/Moving/Door Open.svg"
+            },
+            {
+                "name": "Sign.svg",
+                "file": "./icones/Moving/Sign.svg"
+            }
+        ]
+    },
+    {
+        "category": "Nature",
+        "icons": [
+            {
+                "name": "Cloud.svg",
+                "file": "./icones/Nature/Cloud.svg"
+            },
+            {
+                "name": "Leaf.svg",
+                "file": "./icones/Nature/Leaf.svg"
+            },
+            {
+                "name": "Moon.svg",
+                "file": "./icones/Nature/Moon.svg"
+            },
+            {
+                "name": "Seedling.svg",
+                "file": "./icones/Nature/Seedling.svg"
+            },
+            {
+                "name": "Snowflake.svg",
+                "file": "./icones/Nature/Snowflake.svg"
+            },
+            {
+                "name": "Sun.svg",
+                "file": "./icones/Nature/Sun.svg"
+            },
+            {
+                "name": "Tree.svg",
+                "file": "./icones/Nature/Tree.svg"
+            }
+        ]
+    },
+    {
+        "category": "Objects",
+        "icons": [
+            {
+                "name": "Anchor.svg",
+                "file": "./icones/Objects/Anchor.svg"
+            },
+            {
+                "name": "Bath.svg",
+                "file": "./icones/Objects/Bath.svg"
+            },
+            {
+                "name": "Cube.svg",
+                "file": "./icones/Objects/Cube.svg"
+            },
+            {
+                "name": "Cubes.svg",
+                "file": "./icones/Objects/Cubes.svg"
+            },
+            {
+                "name": "Digital Tachograph.svg",
+                "file": "./icones/Objects/Digital Tachograph.svg"
+            },
+            {
+                "name": "Road.svg",
+                "file": "./icones/Objects/Road.svg"
+            },
+            {
+                "name": "Shower.svg",
+                "file": "./icones/Objects/Shower.svg"
+            },
+            {
+                "name": "Weight Hanging.svg",
+                "file": "./icones/Objects/Weight Hanging.svg"
+            }
+        ]
+    },
+    {
+        "category": "Password",
+        "icons": [
+            {
+                "name": "Key.svg",
+                "file": "./icones/Password/Key.svg"
+            },
+            {
+                "name": "Lock Open.svg",
+                "file": "./icones/Password/Lock Open.svg"
+            },
+            {
+                "name": "Lock.svg",
+                "file": "./icones/Password/Lock.svg"
+            },
+            {
+                "name": "Unlock Alt.svg",
+                "file": "./icones/Password/Unlock Alt.svg"
+            },
+            {
+                "name": "Unlock.svg",
+                "file": "./icones/Password/Unlock.svg"
+            }
+        ]
+    },
+    {
+        "category": "Shopping",
+        "icons": [
+            {
+                "name": "Cart Arrow Down.svg",
+                "file": "./icones/Shopping/Cart Arrow Down.svg"
+            },
+            {
+                "name": "Cart Plus.svg",
+                "file": "./icones/Shopping/Cart Plus.svg"
+            },
+            {
+                "name": "Shopping Bag.svg",
+                "file": "./icones/Shopping/Shopping Bag.svg"
+            },
+            {
+                "name": "Shopping Basket.svg",
+                "file": "./icones/Shopping/Shopping Basket.svg"
+            },
+            {
+                "name": "Shopping Cart.svg",
+                "file": "./icones/Shopping/Shopping Cart.svg"
+            }
+        ]
+    },
+    {
+        "category": "Status",
+        "icons": [
+            {
+                "name": "Ban.svg",
+                "file": "./icones/Status/Ban.svg"
+            },
+            {
+                "name": "Parking.svg",
+                "file": "./icones/Status/Parking.svg"
+            },
+            {
+                "name": "Question Circle.svg",
+                "file": "./icones/Status/Question Circle.svg"
+            },
+            {
+                "name": "Signal.svg",
+                "file": "./icones/Status/Signal.svg"
+            },
+            {
+                "name": "Wifi.svg",
+                "file": "./icones/Status/Wifi.svg"
+            }
+        ]
+    },
+    {
+        "category": "Tech",
+        "icons": [
+            {
+                "name": "Battery Empty.svg",
+                "file": "./icones/Tech/Battery Empty.svg"
+            },
+            {
+                "name": "Battery Full.svg",
+                "file": "./icones/Tech/Battery Full.svg"
+            },
+            {
+                "name": "Battery Half.svg",
+                "file": "./icones/Tech/Battery Half.svg"
+            },
+            {
+                "name": "Battery Quarter.svg",
+                "file": "./icones/Tech/Battery Quarter.svg"
+            },
+            {
+                "name": "Battery Three Quarters.svg",
+                "file": "./icones/Tech/Battery Three Quarters.svg"
+            },
+            {
+                "name": "Bolt.svg",
+                "file": "./icones/Tech/Bolt.svg"
+            },
+            {
+                "name": "Database.svg",
+                "file": "./icones/Tech/Database.svg"
+            },
+            {
+                "name": "Desktop.svg",
+                "file": "./icones/Tech/Desktop.svg"
+            },
+            {
+                "name": "Fax.svg",
+                "file": "./icones/Tech/Fax.svg"
+            },
+            {
+                "name": "Hdd.svg",
+                "file": "./icones/Tech/Hdd.svg"
+            },
+            {
+                "name": "Headset.svg",
+                "file": "./icones/Tech/Headset.svg"
+            },
+            {
+                "name": "Laptop.svg",
+                "file": "./icones/Tech/Laptop.svg"
+            },
+            {
+                "name": "Memory.svg",
+                "file": "./icones/Tech/Memory.svg"
+            },
+            {
+                "name": "Microchip.svg",
+                "file": "./icones/Tech/Microchip.svg"
+            },
+            {
+                "name": "Mobile Alt.svg",
+                "file": "./icones/Tech/Mobile Alt.svg"
+            },
+            {
+                "name": "Mobile.svg",
+                "file": "./icones/Tech/Mobile.svg"
+            },
+            {
+                "name": "Plug.svg",
+                "file": "./icones/Tech/Plug.svg"
+            },
+            {
+                "name": "Power Off.svg",
+                "file": "./icones/Tech/Power Off.svg"
+            },
+            {
+                "name": "Print.svg",
+                "file": "./icones/Tech/Print.svg"
+            },
+            {
+                "name": "Server.svg",
+                "file": "./icones/Tech/Server.svg"
+            },
+            {
+                "name": "Solar Panel.svg",
+                "file": "./icones/Tech/Solar Panel.svg"
+            },
+            {
+                "name": "Tablet Alt.svg",
+                "file": "./icones/Tech/Tablet Alt.svg"
+            },
+            {
+                "name": "Tablet.svg",
+                "file": "./icones/Tech/Tablet.svg"
+            }
+        ]
+    },
+    {
+        "category": "Travel",
+        "icons": [
+            {
+                "name": "Briefcase.svg",
+                "file": "./icones/Travel/Briefcase.svg"
+            },
+            {
+                "name": "Compass.svg",
+                "file": "./icones/Travel/Compass.svg"
+            },
+            {
+                "name": "Globe Africa.svg",
+                "file": "./icones/Travel/Globe Africa.svg"
+            },
+            {
+                "name": "Globe Americas.svg",
+                "file": "./icones/Travel/Globe Americas.svg"
+            },
+            {
+                "name": "Globe Asia.svg",
+                "file": "./icones/Travel/Globe Asia.svg"
+            },
+            {
+                "name": "Globe.svg",
+                "file": "./icones/Travel/Globe.svg"
+            },
+            {
+                "name": "Luggage Cart.svg",
+                "file": "./icones/Travel/Luggage Cart.svg"
+            },
+            {
+                "name": "Map Marked Alt.svg",
+                "file": "./icones/Travel/Map Marked Alt.svg"
+            },
+            {
+                "name": "Map Marked.svg",
+                "file": "./icones/Travel/Map Marked.svg"
+            },
+            {
+                "name": "Map Marker Alt.svg",
+                "file": "./icones/Travel/Map Marker Alt.svg"
+            },
+            {
+                "name": "Map Marker.svg",
+                "file": "./icones/Travel/Map Marker.svg"
+            },
+            {
+                "name": "Map Pin.svg",
+                "file": "./icones/Travel/Map Pin.svg"
+            },
+            {
+                "name": "Map.svg",
+                "file": "./icones/Travel/Map.svg"
+            },
+            {
+                "name": "Spa.svg",
+                "file": "./icones/Travel/Spa.svg"
+            },
+            {
+                "name": "Suitcase Rolling.svg",
+                "file": "./icones/Travel/Suitcase Rolling.svg"
+            },
+            {
+                "name": "Suitcase.svg",
+                "file": "./icones/Travel/Suitcase.svg"
+            },
+            {
+                "name": "Umbrella Beach.svg",
+                "file": "./icones/Travel/Umbrella Beach.svg"
+            },
+            {
+                "name": "Umbrella.svg",
+                "file": "./icones/Travel/Umbrella.svg"
+            }
+        ]
+    },
+    {
+        "category": "Users & People",
+        "icons": [
+            {
+                "name": "Bed.svg",
+                "file": "./icones/Users & People/Bed.svg"
+            },
+            {
+                "name": "Blind.svg",
+                "file": "./icones/Users & People/Blind.svg"
+            },
+            {
+                "name": "Chalkboard Teacher.svg",
+                "file": "./icones/Users & People/Chalkboard Teacher.svg"
+            },
+            {
+                "name": "Child.svg",
+                "file": "./icones/Users & People/Child.svg"
+            },
+            {
+                "name": "emoticons",
+                "file": "./icones/Users & People/emoticons"
+            },
+            {
+                "name": "People Carry.svg",
+                "file": "./icones/Users & People/People Carry.svg"
+            },
+            {
+                "name": "Poo.svg",
+                "file": "./icones/Users & People/Poo.svg"
+            },
+            {
+                "name": "User Alt Slash.svg",
+                "file": "./icones/Users & People/User Alt Slash.svg"
+            },
+            {
+                "name": "User Alt.svg",
+                "file": "./icones/Users & People/User Alt.svg"
+            },
+            {
+                "name": "User Astronaut.svg",
+                "file": "./icones/Users & People/User Astronaut.svg"
+            },
+            {
+                "name": "User Check.svg",
+                "file": "./icones/Users & People/User Check.svg"
+            },
+            {
+                "name": "User Circle.svg",
+                "file": "./icones/Users & People/User Circle.svg"
+            },
+            {
+                "name": "User Clock.svg",
+                "file": "./icones/Users & People/User Clock.svg"
+            },
+            {
+                "name": "User Cog.svg",
+                "file": "./icones/Users & People/User Cog.svg"
+            },
+            {
+                "name": "User Edit.svg",
+                "file": "./icones/Users & People/User Edit.svg"
+            },
+            {
+                "name": "User Friends.svg",
+                "file": "./icones/Users & People/User Friends.svg"
+            },
+            {
+                "name": "User Graduate.svg",
+                "file": "./icones/Users & People/User Graduate.svg"
+            },
+            {
+                "name": "User Lock.svg",
+                "file": "./icones/Users & People/User Lock.svg"
+            },
+            {
+                "name": "User Md.svg",
+                "file": "./icones/Users & People/User Md.svg"
+            },
+            {
+                "name": "User Minus.svg",
+                "file": "./icones/Users & People/User Minus.svg"
+            },
+            {
+                "name": "User Ninja.svg",
+                "file": "./icones/Users & People/User Ninja.svg"
+            },
+            {
+                "name": "User Plus.svg",
+                "file": "./icones/Users & People/User Plus.svg"
+            },
+            {
+                "name": "User Secret.svg",
+                "file": "./icones/Users & People/User Secret.svg"
+            },
+            {
+                "name": "User Shield.svg",
+                "file": "./icones/Users & People/User Shield.svg"
+            },
+            {
+                "name": "User Slash.svg",
+                "file": "./icones/Users & People/User Slash.svg"
+            },
+            {
+                "name": "User Tag.svg",
+                "file": "./icones/Users & People/User Tag.svg"
+            },
+            {
+                "name": "User Tie.svg",
+                "file": "./icones/Users & People/User Tie.svg"
+            },
+            {
+                "name": "User Times.svg",
+                "file": "./icones/Users & People/User Times.svg"
+            },
+            {
+                "name": "User.svg",
+                "file": "./icones/Users & People/User.svg"
+            },
+            {
+                "name": "Users Cog.svg",
+                "file": "./icones/Users & People/Users Cog.svg"
+            },
+            {
+                "name": "Users.svg",
+                "file": "./icones/Users & People/Users.svg"
+            },
+            {
+                "name": "Walking.svg",
+                "file": "./icones/Users & People/Walking.svg"
+            },
+            {
+                "name": "Wheelchair.svg",
+                "file": "./icones/Users & People/Wheelchair.svg"
+            }
+        ]
+    },
+    {
+        "category": "Vehicles",
+        "icons": [
+            {
+                "name": "Bus Alt.svg",
+                "file": "./icones/Vehicles/Bus Alt.svg"
+            },
+            {
+                "name": "Bus.svg",
+                "file": "./icones/Vehicles/Bus.svg"
+            },
+            {
+                "name": "Car.svg",
+                "file": "./icones/Vehicles/Car.svg"
+            },
+            {
+                "name": "Fighter Jet.svg",
+                "file": "./icones/Vehicles/Fighter Jet.svg"
+            },
+            {
+                "name": "Gas Pump.svg",
+                "file": "./icones/Vehicles/Gas Pump.svg"
+            },
+            {
+                "name": "Helicopter.svg",
+                "file": "./icones/Vehicles/Helicopter.svg"
+            },
+            {
+                "name": "Motorcycle.svg",
+                "file": "./icones/Vehicles/Motorcycle.svg"
+            },
+            {
+                "name": "Plane Arrival.svg",
+                "file": "./icones/Vehicles/Plane Arrival.svg"
+            },
+            {
+                "name": "Plane Departure.svg",
+                "file": "./icones/Vehicles/Plane Departure.svg"
+            },
+            {
+                "name": "Plane.svg",
+                "file": "./icones/Vehicles/Plane.svg"
+            },
+            {
+                "name": "Ship.svg",
+                "file": "./icones/Vehicles/Ship.svg"
+            },
+            {
+                "name": "Shipping Fast.svg",
+                "file": "./icones/Vehicles/Shipping Fast.svg"
+            },
+            {
+                "name": "Shuttle Van.svg",
+                "file": "./icones/Vehicles/Shuttle Van.svg"
+            },
+            {
+                "name": "Space Shuttle.svg",
+                "file": "./icones/Vehicles/Space Shuttle.svg"
+            },
+            {
+                "name": "Subway.svg",
+                "file": "./icones/Vehicles/Subway.svg"
+            },
+            {
+                "name": "Tachometer Alt.svg",
+                "file": "./icones/Vehicles/Tachometer Alt.svg"
+            },
+            {
+                "name": "Taxi.svg",
+                "file": "./icones/Vehicles/Taxi.svg"
+            },
+            {
+                "name": "Train.svg",
+                "file": "./icones/Vehicles/Train.svg"
+            },
+            {
+                "name": "Truck Moving.svg",
+                "file": "./icones/Vehicles/Truck Moving.svg"
+            },
+            {
+                "name": "Truck.svg",
+                "file": "./icones/Vehicles/Truck.svg"
+            }
+        ]
+    }
+])
+    const icons = JSON.parse(json)
+
+    const anchor = document.getElementsByClassName('icon-grid')[0]
+
+    console.log(categories)
+    anchor.innerHTML = `
+        <span class="icon" draggable="true">
+            <img src ="${icons[0].icons[0].file[0]}" />
+        </span>
+    `
+    console.log(icons)
+</script>
+</html>
