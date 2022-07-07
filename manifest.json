@@ -1,0 +1,10 @@
+{
+  "name": "Icon Drag & Drop",
+  "id": "1126687596938475170",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}
