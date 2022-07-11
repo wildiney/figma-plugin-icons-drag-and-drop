@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-figma.showUI(__html__, { width: 450, height: 900 });
+figma.showUI(__html__, { width: 310, height: 700 });
 
 // Receive the drop event from the UI
 figma.on('drop', (event) => {
