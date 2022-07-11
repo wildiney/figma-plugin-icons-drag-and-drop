@@ -4,12 +4,17 @@
   "description": "Your Figma Plugin",
   "main": "code.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json --watch"
   },
   "author": "",
   "license": "",
   "devDependencies": {
-    "@figma/plugin-typings": "*",
+    "@types/node": "^18.0.3",
     "typescript": "*"
+  },
+  "dependencies": {
+    "@figma/plugin-typings": "^1.49.0",
+    "figma-plugin-ds": "^1.0.1",
+    "ts-node": "^10.8.2"
   }
 }
