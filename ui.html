@@ -6,7 +6,160 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Icons</title>
+
   <style>
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --clr-primary: #005CA9;
+      --clr-secondary: #3A4859;
+      --clr-neutral: white;
+    }
+
+    html,
+    body {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      width: auto;
+      border-radius: .3rem;
+      background-color: white;
+    }
+
+    header {
+      position: fixed;
+      display: flex;
+      width: 100%;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      background-color: var(--clr-secondary);
+      color: var(--clr-neutral);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: .5rem 1rem;
+      font-size: .7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 150%;
+    }
+
+    .search-container {
+      margin: 1rem;
+      padding: 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      background-color: white;
+      border: 1px solid gray;
+
+    }
+
+    .search-container input[type="text"] {
+      width: calc(100% - 5rem);
+      flex: 0 0 auto;
+    }
+
+    .search-container button {
+      width: auto;
+      flex: 0 0 auto;
+      display: inline-block;
+    }
+
+    .icons-container {
+      margin-top: 9rem;
+      margin-bottom: 10rem;
+      margin-left: 0rem;
+      margin-right: 0rem;
+      padding: 1rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    label {
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: .5rem;
+      font-size: 1rem;
+    }
+
+    input {
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+      column-gap: 1rem;
+    }
+
+    input[type="text"] {
+      min-height: 2rem;
+      border: 1px solid gray;
+      border-radius: .3rem;
+      padding: 0 .5rem;
+      flex: 1 1 auto;
+      display: inline-block;
+    }
+
+    button {
+      padding: 0 .5rem;
+      cursor: pointer;
+      min-height: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: .3rem;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--clr-primary);
+      color: #fff;
+      font-weight: bold;
+      border: 2px solid transparent
+    }
+
+    .btn-primary:hover {
+      background-color: #0F92FF
+    }
+
+
     form#parenting {
       display: none;
     }
@@ -15,13 +168,29 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      width: auto;
+      gap: .5rem;
+      height: 100%;
+      overflow-y: auto;
+      padding-bottom: 6rem;
     }
+
+    .icons-grid h2 {
+      width: 100%;
+      flex-grow: 1;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .icons-grid h2:first-child {
+      margin-top: 0;
+    }
+
 
     .icon {
       cursor: grab;
-      width: 24px;
-      height: 24px;
-      margin: 4px;
+      width: auto;
+      height: auto;
       padding: 16px;
       border-radius: 4px;
       border: 1px solid gray;
@@ -31,28 +200,64 @@
     .icon:hover {
       background-color: #ddd;
     }
+
+    .icons-not-found {
+      font-family: Inter, sans-serif;
+      line-height: 150%;
+      font-size: 1.3rem;
+      padding: 2rem;
+      width: 100%;
+      border-radius: .3rem;
+      background-color: var(--clr-secondary);
+      color: var(--clr-neutral);
+    }
+
+    .w-100 {
+      width: 100%;
+    }
   </style>
 </head>
 
 <body>
-  <input type="text" id="tag"><button onclick="showIcons()">Filtrar</button>
-  <div id="icon-grid" class="icon-grid">
+  <header>
+    <div class="container search-container">
+      <div class="row">
+        <label>Search for</label>
+        <div class="input-group">
+          <input type="text" id="input_filter" class="input__field">
+          <button id="btn_filter" class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container icons-container">
+    <div class="row">
+      <div id="icon-grid" class="icons-grid">
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <span>Wildiney Di Masi</span>
+    <span>v.1.0.0<br>report a problem</span>
+  </footer>
 
   <form id="parenting">
     <label>Parenting strategy:</label>
     <div>
-      <input type="radio" name="parentingStrategy" value="page">Page
+      <input type="radio" name="parentingStrategy" value="page" checked="checked">Page
     </div>
     <div>
-      <input type="radio" name="parentingStrategy" value="immediate" checked="checked">In parentable node
+      <input type="radio" name="parentingStrategy" value="immediate">In parentable node
     </div>
   </form>
+  </div>
 </body>
 
 
-<script>
-  const icones = [
+<script type="text/javascript" defer id="resource_json">
+  const allIcons = [
     {
       "category": "Accessibility",
       "icons": [
@@ -815,7 +1020,8 @@
           "file": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.53906 5H15.4609C15.9402 5 16.1803 4.36135 15.8413 3.98785L12.3804 0.173647C12.1703 -0.0578822 11.8297 -0.0578822 11.6196 0.173647L8.15865 3.98785C7.81974 4.36135 8.05977 5 8.53906 5ZM15.4609 19H8.53907C8.05978 19 7.81973 19.6386 8.15866 20.0121L11.6196 23.8264C11.8297 24.0579 12.1703 24.0579 12.3804 23.8264L15.8414 20.0121C16.1803 19.6386 15.9402 19 15.4609 19ZM0 14C0 13.4477 0.447715 13 1 13H23C23.5523 13 24 13.4477 24 14V15C24 15.5523 23.5523 16 23 16H1C0.447716 16 0 15.5523 0 15V14ZM1 8C0.447715 8 0 8.44771 0 9V10C0 10.5523 0.447716 11 1 11H23C23.5523 11 24 10.5523 24 10V9C24 8.44772 23.5523 8 23 8H1Z\" fill=\"#4E6178\"/>\n</svg>\n",
           "tags": [
             "arrows",
-            "line-drag"
+            "line",
+            "drag"
           ]
         },
         {
@@ -4573,7 +4779,6 @@
             "child"
           ]
         },
-        null,
         {
           "name": "Poo.svg",
           "file": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21.1594 17.3016C21.9703 16.6875 22.5 15.7219 22.5 14.625C22.5 12.7594 20.9906 11.25 19.125 11.25H18.4641C19.0922 10.7016 19.5 9.9 19.5 9C19.5 7.34531 18.1547 6 16.5 6H16.2234C16.3922 5.52656 16.5 5.02969 16.5 4.5C16.5 2.01562 14.4844 0 12 0C11.7563 0 11.5219 0.0328125 11.2922 0.0703125C11.7328 0.684375 12 1.43438 12 2.25C12 4.32188 10.3219 6 8.25 6H7.5C5.84531 6 4.5 7.34531 4.5 9C4.5 9.9 4.90781 10.7016 5.53594 11.25H4.875C3.00938 11.25 1.5 12.7594 1.5 14.625C1.5 15.7219 2.02969 16.6875 2.84062 17.3016C1.23281 17.5594 0 18.9422 0 20.625C0 22.4906 1.50938 24 3.375 24H20.625C22.4906 24 24 22.4906 24 20.625C24 18.9422 22.7672 17.5594 21.1594 17.3016ZM9 12C9.82969 12 10.5 12.6703 10.5 13.5C10.5 14.3297 9.82969 15 9 15C8.17031 15 7.5 14.3297 7.5 13.5C7.5 12.6703 8.17031 12 9 12ZM16.4766 18.5156C15.9844 19.8234 13.7344 21 12 21C10.2656 21 8.01562 19.8234 7.52344 18.5156C7.42969 18.2672 7.61719 18 7.88906 18H16.1109C16.3828 18 16.5703 18.2672 16.4766 18.5156ZM15 15C14.1703 15 13.5 14.3297 13.5 13.5C13.5 12.6703 14.1703 12 15 12C15.8297 12 16.5 12.6703 16.5 13.5C16.5 14.3297 15.8297 15 15 15Z\" fill=\"#4E6178\"/>\n</svg>\n",
@@ -4853,30 +5058,57 @@
       ]
     }
   ]
+</script>
+<script type="text/javascript" defer id="code_execution">
   const grid = document.getElementById('icon-grid');
+  const btn_filter = document.getElementById('btn_filter');
+  const input_filter = document.getElementById('input_filter');
+
+  btn_filter.addEventListener('click', () => showIcons())
+  input_filter.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      showIcons();
+    }
+  })
 
   function showIcons () {
-    console.log("start")
-    const term = document.getElementById('tag').value
+    console.log("[DEBUG] showIcons()");
+
+    const term = input_filter.value.toLowerCase()
+
     let html = ""
+
     grid.innerHTML = 'Loading...'
-    for (let [key, value] in Object.entries(icones)) {
-      const files = icones[key]
-      const category = files.category
-      for (file of files.icons) {
-        if (term !== null && term !== '' && term !== undefined) {
+
+    let selectedIcons = []
+    if (term !== undefined && term !== '' && term !== null) {
+      selectedIcons = allIcons.filter(iconGroup => iconGroup.icons.filter(tag => tag.tags.includes(term)).length > 0)
+    } else {
+      selectedIcons = allIcons
+    }
+
+    for (key in selectedIcons) {
+      try {
+        const category = selectedIcons[key]['category']
+
+        html += `<h2>${category}</h2>`
+        for (icon of selectedIcons[key]['icons']) {
           try {
-            if (file.tags.includes(term)) {
-              html += `<span class="icon" draggable="true">${file.file}</span>`;
-            }
+            html += `<span class="icon" draggable="true" data-content="${icon.name.replace(".svg", "")}">${icon.file}</span>`;
           } catch (e) {
-            console.log(`${file.name} não possui tags`)
+            console.log(e)
           }
-        } else {
-          html += `<span class="icon" draggable="true">${file.file}</span>`;
         }
+      } catch (e) {
+        console.log(e)
       }
     }
+
+    if (html.length <= 0) {
+      html = `<h2 class="icons-not-found">No icons found with the word "${term}"</h2>`
+    }
+
     grid.innerHTML = html;
 
     const icons = document.getElementsByClassName('icon');
@@ -4909,8 +5141,8 @@
       });
     }
   }
+
   showIcons()
 </script>
-
 
 </html>
