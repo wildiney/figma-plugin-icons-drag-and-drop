@@ -68,6 +68,17 @@
       line-height: 150%;
     }
 
+    footer a:link,
+    footer a:visited,
+    footer a:active {
+      color: var(--clr-neutral);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     .search-container {
       margin: 1rem;
       padding: 1rem;
@@ -240,7 +251,9 @@
 
   <footer>
     <span>Wildiney Di Masi</span>
-    <span>v.1.0.0<br>report a problem</span>
+    <span>v.1.0.0<br><a target="_blank" rel="nofollow"
+        href="https://github.com/wildiney/figma-plugin-icons-drag-and-drop/issues">report a
+        problem</a></span>
   </footer>
 
   <form id="parenting">
@@ -5072,6 +5085,16 @@
     }
   })
 
+  function template (props) {
+    if (!props.icons.length) {
+      return `<h2 class="icons-not-found">No icons found</h2>`
+    }
+
+    return `${props.icons.map((icon) => {
+      return `<span class="icon" draggable="true" data-content="${icon.name.replace(".svg", "")}">${icon.file}</span>`
+    }).join("")}`
+  }
+
   function showIcons () {
     console.log("[DEBUG] showIcons()");
 
@@ -5093,13 +5116,7 @@
         const category = selectedIcons[key]['category']
 
         html += `<h2>${category}</h2>`
-        for (icon of selectedIcons[key]['icons']) {
-          try {
-            html += `<span class="icon" draggable="true" data-content="${icon.name.replace(".svg", "")}">${icon.file}</span>`;
-          } catch (e) {
-            console.log(e)
-          }
-        }
+        html += template(selectedIcons[key])
       } catch (e) {
         console.log(e)
       }
